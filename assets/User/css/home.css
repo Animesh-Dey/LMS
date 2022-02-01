@@ -1,0 +1,351 @@
+
+/* UTILITIES */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+ }
+ body {
+  font-family: cursive;
+  background-color: #ecebeb;
+ }
+
+
+ a {
+  text-decoration: none;
+  color: aliceblue;
+ }
+ li {
+  list-style: none;
+ }
+ /* NAVBAR STYLING STARTS */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #0C1110;
+  color: #fff;
+ }
+ .nav-links a {
+  color: #fff;
+ }
+ 
+ /* LOGO */
+ .logo {
+  font-size: 23px;
+ }
+ 
+ /* NAVBAR MENU */
+ .menu {
+  display: flex;
+  gap: 1em;
+  font-size: 18px;
+ }
+ .menu li:hover {
+  background-color: #475c5c;
+  border-radius: 6px;
+  transition: 0.3s ease;
+ }
+ .menu li {
+  padding: 5px 14px;
+ }
+ /* DROPDOWN MENU */
+ .services {
+  position:relative; 
+ }
+ .dropdown {
+  background-color: rgb(0, 0, 0);
+  padding: 0.5em 0;
+  position:absolute; /*WITH RESPECT TO PARENT*/
+  display: none;
+  border-radius: 7px;
+  top: 35px;
+ }
+ .dropdown li + li {
+  margin-top: 14px;
+ }
+ .dropdown li {
+  padding: 0.5em 0.5em;
+  width: 8em;
+  text-align: center;
+ }
+ .dropdown li:hover {
+  background-color: #475c5c;
+ }
+ .services:hover .dropdown {
+  display: block;
+ }
+ /*RESPONSIVE NAVBAR MENU STARTS*/
+/* CHECKBOX HACK */
+input[type=checkbox]{
+  display: none;
+ } 
+ /*HAMBURGER MENU*/
+ .hamburger {
+  display: none;
+  font-size: 24px;
+  user-select: none;
+ }
+ .container{
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   height:92vh;
+ }
+ .content-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 20px auto;
+  width: 250px;
+  height: 250px;
+  background: whitesmoke;
+  border-radius: 75px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: lighter;
+  letter-spacing: 2px;
+  transition: 1s box-shadow;
+}
+
+.content-box:hover {
+  box-shadow: 0 5px 35px 0px rgba(0,0,0,.1);
+  cursor: pointer;
+}
+
+.content-box:hover::before, .content-box:hover::after {
+  display: block;
+  content: '';
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  background: #FDA8CF;
+  border-radius: 75px;
+  z-index: -1;
+  animation: 1s clockwise infinite;
+}
+.content-box a{
+  color: #1e293d;
+}
+.content-box a:hover{
+  color:aqua ;
+}
+.content-box:hover:after {
+  background: #F3CE5E;
+  animation: 2s counterclockwise infinite;
+}
+
+@keyframes clockwise {
+  0% {
+    top: -5px;
+    left: 0;
+  }
+  12% {
+    top: -2px;
+    left: 2px;
+  }
+  25% {
+    top: 0;
+    left: 5px;    
+  }
+  37% {
+    top: 2px;
+    left: 2px;
+  }
+  50% {
+    top: 5px;
+    left: 0;    
+  }
+  62% {
+    top: 2px;
+    left: -2px;
+  }
+  75% {
+    top: 0;
+    left: -5px;
+  }
+  87% {
+    top: -2px;
+    left: -2px;
+  }
+  100% {
+    top: -5px;
+    left: 0;    
+  }
+}
+
+@keyframes counterclockwise {
+  0% {
+    top: -5px;
+    right: 0;
+  }
+  12% {
+    top: -2px;
+    right: 2px;
+  }
+  25% {
+    top: 0;
+    right: 5px;    
+  }
+  37% {
+    top: 2px;
+    right: 2px;
+  }
+  50% {
+    top: 5px;
+    right: 0;    
+  }
+  62% {
+    top: 2px;
+    right: -2px;
+  }
+  75% {
+    top: 0;
+    right: -5px;
+  }
+  87% {
+    top: -2px;
+    right: -2px;
+  }
+  100% {
+    top: -5px;
+    right: 0;    
+  }
+}
+/* APPLYING MEDIA QUERIES */
+@media (max-width: 768px) {
+  .menu { 
+   display:none;
+   position: absolute;
+   background-color:#0C1110;
+   right: 0;
+   left: 0;
+   text-align: center;
+   font-size: 18px;
+   padding: 10px 0;
+  }
+  .menu li:hover {
+   display: inline-block;
+   background-color:#475c5c;
+   transition: 0.3s ease;
+  }
+  .logo{
+    font-size: 18px;
+  }
+  
+  .menu li + li {
+   margin-top: 8px;
+  }
+  input[type=checkbox]:checked ~ .menu{
+   display: block;
+  }
+  .hamburger {
+   display: block;
+  }
+  .dropdown {
+   left: 40%;
+   top: 35px;
+   transform: translateX(35%);
+   
+  }
+  .dropdown li:hover {
+   background-color: #475c5c;
+   
+  }
+  .container{
+    flex-direction: column;
+    margin: 0;
+    margin-top: 1rem;
+    height:100vh;
+  }
+  .content-box{
+    margin: 25px auto;
+    width: 200px;
+    height: 200px;
+    border-radius: 75px;
+  }
+  .content-box:hover::before, .content-box:hover::after{
+    width: 200px;
+    height: 200px;
+  }
+  .services:hover .dropdown {
+    display: flex;
+  }
+  }
+  @media (max-width: 411px){
+    .menu{
+      font-size: 15px;
+    }
+    .container{
+      flex-direction: column;
+    margin: 0;
+    margin-top: 1.5em;
+    height:99vh;
+    }
+    .logo{
+      font-size: 16px;
+    }
+  }
+  @media (max-width: 280px){
+    .menu { 
+      display:none;
+      position: absolute;
+      background-color:#0C1110;
+      right: 0;
+      left: 0;
+      font-size: 14px;
+      text-align: center;
+      padding: 9px 0;
+     }
+     .menu li:hover {
+      display: inline-block;
+      background-color:#475c5c;
+      transition: 0.3s ease;
+     }
+     .logo{
+       font-size: 13px;
+     }
+     
+     .menu li + li {
+      margin-top: 8px;
+     }
+     input[type=checkbox]:checked ~ .menu{
+      display: block;
+     }
+     .hamburger {
+      display: block;
+     }
+     .dropdown {
+      left: 40%;
+      top: 35px;
+      transform: translateX(35%);
+      
+     }
+     .dropdown li:hover {
+      background-color: #475c5c;
+      
+     }
+     .container{
+       flex-direction: column;
+       margin: 0;
+       margin-top: 1.6rem;
+       height:90vh;
+     }
+     .content-box{
+       margin: 20px auto;
+       width: 200px;
+       height: 200px;
+       border-radius: 75px;
+     }
+     .content-box:hover::before, .content-box:hover::after{
+       width: 200px;
+       height: 200px;
+     }
+     .services:hover .dropdown {
+       display: flex;
+     }
+  }
